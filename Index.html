@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    MaxUrRewards – Product Page for GitHub Pages
+    Place this file at: /docs/index.html
+    Place images at:     /docs/assets/
+    All asset paths below assume the structure above.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MaxUrRewards — Smart Credit Card Reward Optimizer</title>
+  <meta name="description" content="MaxUrRewards helps you pick the right credit card for every purchase using on‑device, privacy‑first logic. No logins. No cloud. Just more rewards." />
+  <link rel="icon" type="image/png" href="./assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="./assets/app-icon.png" />
+  <!-- Optional Smart App Banner (uncomment after App Store approval)
+  <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID"> -->
+  <meta property="og:title" content="MaxUrRewards — Smart Credit Card Reward Optimizer" />
+  <meta property="og:description" content="Use the right card, every time. On‑device recommendations, encrypted local storage, and zero sign‑in." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/og-banner.png" />
+  <meta property="og:url" content="" />
+  <style>
+    :root {
+      --bg: #f7fbff;
+      --panel: #ffffff;
+      --panel-2: #f3f8ff;
+      --text: #0f1728;
+      --muted: #5b6b82;
+      --brand: #4FC3F7;
+      --brand-2: #2196F3;
+      --accent: #BBDEFB;
+      --ok: #19c37d;
+      --warn: #ffb703;
+      --danger: #ef476f;
+      --shadow: 0 10px 30px rgba(2,33,83,.08);
+      --radius-xl: 1.25rem;
+      --radius-lg: .875rem;
+      --radius-md: .625rem;
+      --maxw: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(255,255,255,.7); border-bottom: 1px solid rgba(2,33,83,.08); z-index: 50; }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:24px; flex-wrap:nowrap; white-space:nowrap; }
+    .nav nav { margin-left:auto; display:flex; align-items:center; gap:28px; flex-wrap:nowrap; }
+    .nav a { color: var(--text); opacity:.95; white-space:nowrap; }
+    .logo { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px; }
+    .logo img { width:34px; height:34px; border-radius: .5rem; box-shadow: var(--shadow); object-fit: cover; background:#222; }
+    .hero { position:relative; padding:72px 0 56px; background: radial-gradient(1200px 600px at 20% -10%, rgba(79,195,247,.28), transparent 55%), radial-gradient(900px 500px at 100% 0%, rgba(33,150,243,.18), transparent 55%); }
+    .hero-inner { display:grid; grid-template-columns: 1fr; $1 }
+    .pill { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); padding:8px 12px; border-radius:999px; font-size:12px; color: var(--muted); }
+    .title { font-size: clamp(28px, 5vw, 46px); line-height:1.1; margin:14px 0 10px; letter-spacing: .2px; }
+    .subtitle { color: var(--muted); font-size: clamp(15px, 2.2vw, 18px); line-height:1.55; }
+    .cta { margin-top: 22px; display:flex; gap:12px; flex-wrap: wrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius: 18px; border: 1px solid rgba(2,33,83,.08); background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.6)); color: var(--text); font-weight:600; }
+    .btn.primary { background: linear-gradient(180deg, var(--brand), var(--brand-2)); border:none; color:#fff; box-shadow: 0 8px 26px rgba(33,150,243,.25); }
+    .btn.ghost { background: transparent; }
+    .screenshot-card { background: var(--panel); border:1px solid rgba(2,33,83,.08); border-radius: var(--radius-xl); padding: 18px; box-shadow: var(--shadow); }
+    .screenshot-card img { width: 100%; border-radius: 14px; display:block; background: #0c132b; aspect-ratio: 9/19.5; object-fit: cover; object-position: center; }
+    .screenshot-art { width: 100%; border-radius: 14px; aspect-ratio: 9/19.5; background:
+      radial-gradient(180px 180px at 50% 26%, rgba(79,195,247,.35), transparent 60%),
+      radial-gradient(300px 300px at 70% 10%, rgba(33,150,243,.22), transparent 55%),
+      linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.65));
+      border:1px solid rgba(2,33,83,.08);
+    }
+    .badges { display:flex; gap:10px; margin-top:12px; }
+
+    section { padding: 56px 0; }
+    .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: linear-gradient(160deg, var(--panel), var(--panel-2)); border:1px solid rgba(2,33,83,.08); border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow); }
+    .card h3 { margin:6px 0 10px; font-size: 18px; }
+    .card p { color: var(--muted); font-size: 15px; line-height:1.55; }
+    .kicker { font-size: 12px; color: var(--muted); letter-spacing: .4px; text-transform: uppercase; }
+
+    .feature-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .feature { background: linear-gradient(160deg, var(--panel), var(--panel-2)); border:1px solid rgba(2,33,83,.08); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow); }
+    .feature ul { margin: 10px 0 0 18px; color: var(--muted); font-size: 15px; line-height:1.6; }
+
+    .screens { display:grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap:16px; }
+    .screens figure { margin:0; display:flex; flex-direction:column; } .screens img { width:100%; display:block; border-radius:14px; aspect-ratio: 9/19.5; object-fit: cover; } .screens img { width:100%; display:block; border-radius:14px; }
+    .screens figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; text-align:center; min-height: 2.6em; }
+
+    .faq dt { font-weight:700; margin-top: 18px; }
+    .faq dd { margin: 8px 0 0 0; color: var(--muted); }
+
+    .support { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .support .panel { background: linear-gradient(160deg, var(--panel), var(--panel-2)); border:1px solid rgba(2,33,83,.08); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow); }
+    .support .panel p { color: var(--muted); }
+
+    footer { border-top:1px solid rgba(2,33,83,.08); padding: 22px 0; color: var(--muted); font-size: 14px; }
+
+    /* Responsive */
+    @media (max-width: 980px) { .hero-inner { grid-template-columns: 1fr; } .cards { grid-template-columns: 1fr 1fr; } .feature-grid { grid-template-columns: 1fr; } .support { grid-template-columns: 1fr; } .screens { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .cards { grid-template-columns: 1fr; } .screens { grid-template-columns: 1fr; } }
+
+    /* Helpful placeholders for missing images */
+    .placeholder { display:grid; place-items:center; background: repeating-linear-gradient(45deg, #eaf4ff, #eaf4ff 10px, #f6fbff 10px, #f6fbff 20px); color:#3a4a6b; border-radius: 14px; aspect-ratio: 9/19.5; }
+    .placeholder small { opacity:.9; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="./assets/app-icon.png" alt="MaxUrRewards app icon" />
+        <span>MaxUrRewards</span>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#how-it-works">How it Works</a>
+        <a href="#support">Support</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div>
+          <span class="pill">iOS • Privacy‑first • On‑device</span>
+          <h1 id="hero-title" class="title">Use the right card, every time.</h1>
+          <p class="subtitle">MaxUrRewards recommends the best credit card for each purchase using your location and merchant category — all computed <strong>on your device</strong> with encrypted local storage. No bank logins. No cloud. Just smarter rewards.</p>
+          <div class="cta">
+            <a class="btn primary" aria-disabled="true" role="button" href="#" onclick="return false;">Coming soon to TestFlight</a>
+            <a class="btn ghost" href="#screenshots">See screenshots</a>
+          </div>
+          <div class="badges" aria-hidden="true">
+            <img src="./assets/badge-local-only.png" alt="Local‑only" style="height:28px; opacity:.9;" onerror="this.style.display='none'"/>
+            <img src="./assets/badge-no-login.png" alt="No login required" style="height:28px; opacity:.9;" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick value props -->
+    <section class="container" aria-labelledby="props-title">
+      <h2 id="props-title" class="kicker">Why MaxUrRewards</h2>
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <h3>Location‑aware picks</h3>
+          <p>Detects where you are, maps the merchant category, and recommends the best card instantly — with manual overrides like “Walmart → Grocery vs Pharmacy”.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Real‑time reward math</h3>
+          <p>Calculates effective reward rates across all your cards, considering category bonuses, caps, and tie‑breakers like billing‑cycle timing.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Private by design</h3>
+          <p>All data stays on your device in an encrypted SQLite database. No external servers. No tracking.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="container" aria-labelledby="features-title">
+      <h2 id="features-title" class="kicker">Features</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Card Management</h3>
+          <ul>
+            <li><strong>Natural language</strong> input: add cards like “Chase Sapphire Reserve”, “Citi Double Cash”.</li>
+            <li><strong>Billing date tracking</strong> to optimize cycle timing.</li>
+            <li><strong>Reward structures</strong> with categories, rates, caps, bonuses.</li>
+            <li><strong>Encrypted local database</strong> (SQLite) for sensitive data.</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3>Smart Recommendations</h3>
+          <ul>
+            <li><strong>Location detection</strong> via iOS (GPS) + merchant category mapping.</li>
+            <li><strong>Manual override</strong> for edge cases (e.g., Walmart → Grocery vs Pharmacy).</li>
+            <li><strong>Real‑time reward comparison</strong> across cards.</li>
+            <li><strong>Tie‑breakers</strong> consider billing proximity and category caps.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- How it works / Privacy stance -->
+    <section id="how-it-works" class="container" aria-labelledby="how-title">
+      <h2 id="how-title" class="kicker">How it works</h2>
+      <div class="feature">
+        <p>MaxUrRewards matches your current context to your saved card profiles, computes effective reward rates, and shows a ranked recommendation — all on‑device. Your card list, reward rules, and usage preferences never leave your phone.</p>
+        <ul>
+          <li>No bank logins or account linking required.</li>
+          <li>No cloud sync; no third‑party analytics.</li>
+          <li>Location is used only to map merchant category and is not stored or transmitted.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section id="screenshots" class="container" aria-labelledby="shots-title">
+      <h2 id="shots-title" class="kicker">Screenshots</h2>
+      <div class="screens">
+        <figure>
+          <img src="./assets/screenshot-landing.png" alt="Get Started / Recommendation" onerror="this.outerHTML='<div class=\'placeholder\'><small>Place screenshot-1.png</small></div>'"/>
+          <figcaption>Get Started</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/screenshot-addcard.png" alt="Add Card / Recommendation" onerror="this.outerHTML='<div class=\'placeholder\'><small>Place screenshot-1.png</small></div>'"/>
+          <figcaption>Add Your Card</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/screenshot-homepage.png" alt="Home" onerror="this.outerHTML='<div class=\'placeholder\'><small>Place screenshot-2.png</small></div>'"/>
+          <figcaption>Your Cards Dashboard</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/screenshot-getrecommendation.png" alt="Get Recommendation" onerror="this.outerHTML='<div class=\'placeholder\'><small>Place screenshot-3.png</small></div>'"/>
+          <figcaption>Get Recommendations</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/screenshot-recommendations.png" alt="Recommendation" onerror="this.outerHTML='<div class=\'placeholder\'><small>Place screenshot-3.png</small></div>'"/>
+          <figcaption>Recommendations</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Support -->
+    <section id="support" class="container" aria-labelledby="support-title">
+      <h2 id="support-title" class="kicker">Support</h2>
+      <div class="support">
+        <div class="panel">
+          <h3>Contact</h3>
+          <p>Have a question or found a bug? Email us and we’ll help.</p>
+          <p>
+            <a class="btn" href="mailto:pradhancode@gmail.com?subject=MaxUrRewards%20Support&body=Device%20model%3A%0AiOS%20version%3A%0AApp%20version%3A%0AIssue%3A%20">Email Support</a>
+          </p>
+          <p style="font-size:13px; color:var(--muted)">Tip: include your device/iOS version to speed things up.</p>
+        </div>
+        <div class="panel">
+          <h3>FAQ</h3>
+          <dl class="faq">
+            <dt>Do I need to link my bank accounts?</dt>
+            <dd>No. MaxUrRewards does not connect to banks and does not require logins.</dd>
+            <dt>Where is my data stored?</dt>
+            <dd>On your device only, inside an encrypted SQLite database.</dd>
+            <dt>What permissions are required?</dt>
+            <dd>Location (optional) improves merchant category detection. You can disable it anytime.</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy (anchor target acceptable as a policy URL) -->
+    <section id="privacy" class="container" aria-labelledby="privacy-title">
+      <h2 id="privacy-title" class="kicker">Privacy</h2>
+      <div class="feature">
+        <p><strong>Summary:</strong> MaxUrRewards is designed to keep your information private. The app stores card names, reward rules, and preferences locally on your device in an encrypted database. We do not operate servers for this app, do not collect analytics, and do not sell or share personal data.</p>
+        <ul>
+          <li><strong>Data collected:</strong> None sent to us. Data you enter stays on your device.</li>
+          <li><strong>Location:</strong> Used in‑app to derive merchant category; not stored or transmitted.</li>
+          <li><strong>Contact:</strong> If you email support, we receive the email and any details you provide. We use this only to respond.</li>
+        </ul>
+        <p>Questions? <a href="mailto:pradhancode@gmail.com?subject=MaxUrRewards%20Privacy">Contact us</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div>© <span id="year"></span> MaxUrRewards</div>
+      <div>
+        <a href="#support">Support</a> ·
+        <a href="#privacy">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MaxUrRewards",
+    "operatingSystem": "iOS",
+    "applicationCategory": "FinanceApplication",
+    "description": "Location‑aware credit card recommendations with on‑device, privacy‑first design.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
